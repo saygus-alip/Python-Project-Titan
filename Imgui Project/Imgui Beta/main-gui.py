@@ -23,7 +23,7 @@ imgui_renderer = GlfwRenderer(window)
 io = imgui.get_io()
 io.font_global_scale = 1.5  # ปรับขนาด UI ทั้งหมดให้ใหญ่ขึ้น 1.2 เท่า
 
-# --- ตัวแปรสำหรับ Mod Menu ---
+# --- ตัวแปรสำหรับ Mod_Menu ---
 show_menu = True
 toggle_feature = False
 speed_value = 1.0
@@ -40,7 +40,7 @@ while not glfw.window_should_close(window):
 
     # --- วาด UI ของเรา ---
     if show_menu:
-        imgui.begin("My Mod Menu", True)
+        imgui.begin("My Mod_Menu", True)
 
         # ตั้งค่าขนาดหน้าต่าง
         imgui.set_window_size(400, 250)
