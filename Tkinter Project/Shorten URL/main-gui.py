@@ -7,7 +7,7 @@ ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("blue")
 
 root = ctk.CTk()
-root.title("URL Shortener")
+root.title("URL Shortener 1.0")
 root.geometry("400x400")
 root.resizable(False, False)
 
@@ -30,6 +30,14 @@ def shorten():
         shorturl_entry.configure(state="normal")
         shorturl_entry.delete(0, ctk.END)
         shorturl_entry.insert(0, "Please enter a URL")
+        shorturl_entry.configure(state="readonly")
+        return
+
+    # เพิ่มการตรวจสอบรูปแบบ URL เบื้องต้น
+    if not long_url.startswith("http"):
+        shorturl_entry.configure(state="normal")
+        shorturl_entry.delete(0, ctk.END)
+        shorturl_entry.insert(0, "Error: Invalid URL format (e.g., https://example.com)")
         shorturl_entry.configure(state="readonly")
         return
 
@@ -91,7 +99,7 @@ def copy_to_clipboard():
             shorturl_entry.configure(state="readonly")
 
 # ตัวเลือกบริการย่อลิงก์
-service_options = ["TinyURL", "Is.gd", "Chilp.it", "Bitly"]
+service_options = ["TinyURL", "Is.gd", "Chilp.it (Improve)", "Bitly"]
 
 # วิดเจ็ตต่างๆ
 longurl_label = ctk.CTkLabel(root, text="Enter Long URL")
